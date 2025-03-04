@@ -7,8 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "build"), // Change "dist" to "build"
     filename: "bundle.js",
-    clean: true, // Ensures old files are removed
-  },
+  },  
   module: {
     rules: [
       {
