@@ -2,11 +2,12 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development", // Set mode to development
+  mode: "production", // Change to production for optimized builds
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "build"), // Change "dist" to "build"
     filename: "bundle.js",
+    clean: true, // Ensures old files are removed
   },
   module: {
     rules: [
@@ -21,6 +22,10 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
     ],
   },
   resolve: {
@@ -32,7 +37,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    static: path.join(__dirname, "dist"),
+    static: path.join(__dirname, "build"), // Change "dist" to "build"
     port: 3000,
     historyApiFallback: true,
     hot: true,
