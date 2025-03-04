@@ -1,0 +1,117 @@
+/* Prevent scrolling */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Landing Page Container */
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: #121212;
+    color: #E0E0E0;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    position: relative;
+}
+
+/* App Name */
+.app-name {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #FFA726;
+    margin: 0;
+    padding: 0;
+    line-height: 1.1;
+    display: flex;
+    justify-content: center;
+    gap: 4px; /* Small spacing between letters */
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+/* Move app name down smoothly */
+.app-name.move-down {
+    transform: translateY(20px);
+    opacity: 1;
+}
+
+/* Letter transition */
+.letter {
+    display: inline-block;
+    transition: transform 0.5s ease-in-out, scale 0.5s ease-in-out;
+}
+
+/* Merge animation */
+.letter.merge-center {
+    transition: transform 0.8s ease-in-out, scale 0.5s ease-in-out;
+}
+
+/* Clickable text animation */
+.start-text {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out, opacity 0.5s ease-in-out;
+    margin-top: 10px;
+}
+
+/* Glowing effect on hover */
+.start-text:hover {
+    color: white;
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
+}
+
+/* Smooth exit animation */
+.start-text-exit {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* App Name Container */
+.app-name-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    font-weight: 800;
+    color: #FFA726;
+    text-transform: uppercase;
+}
+
+/* Individual letters ($) */
+.app-letter {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+/* Ensure the spinner appears only when triggered */
+.loading-spinner {
+    width: 120px;
+    height: 120px;
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #FFA726;
+    border-radius: 50%;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 1.5s linear infinite;
+}
+
+/* Smooth rotation effect */
+@keyframes spin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}

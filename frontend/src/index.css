@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* ---- Global Styles ---- */
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #121212;
+    color: #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/* ---- Title Styling ---- */
+.title {
+    font-size: 50px;
+    font-weight: 900;
+    text-align: center;
+    color: #FFA726;
+    margin-bottom: 20px;
+}
+
+/* ---- Main Layout - Ensures Proper Alignment ---- */
+.layout {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1200px;
+    gap: 40px;
+    align-items: flex-start; /* Aligns sections evenly */
+}
+
+.add-expense {
+    flex: 1;
+    background-color: #1E1E1E;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    min-width: 300px;
+    max-width: 400px; /* Prevent stretching */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box; /* Fix input pushing issue */
+}
+/* ---- Expense List Section (Scrollable) ---- */
+.expense-list {
+    flex: 2;
+    background: rgba(30, 30, 30, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    min-width: 500px;
+    max-height: 400px;
+    overflow-y: auto;
+    word-wrap: break-word;
+}
+
+/* ---- Input Groups ---- */
+
+label {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+/* ---- Fix for Add Expense Section ---- */
+.add-expense {
+    flex: 1;
+    background-color: #1E1E1E;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    min-width: 300px;
+    max-width: 400px; /* Prevent stretching */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box; /* Fix input pushing issue */
+}
+
+/* Add some padding inside inputs */
+.input-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+    padding: 0 10px; /* Adds padding to stop pushing */
+}
+
+/* Ensure inputs don’t touch the edges */
+input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #292929;
+    color: #ffffff;
+    outline: none;
+    font-size: 16px;
+    box-sizing: border-box; /* Prevents input overflow */
+}
+
+/* Add spacing between button and input */
+button {
+    margin-top: 10px;
+    width: 100%;
+    background-color: #FF9800;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #E68900;
+}
+
+/* ---- Table Formatting ---- */
+.expense-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+.expense-table th,
+.expense-table td {
+    padding: 12px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.expense-table th {
+    background-color: #333;
+    color: #FFA726;
+    font-weight: 600;
+}
+
+.expense-table td {
+    color: #ddd;
+}
+
+.expense-table tr {
+    border-bottom: 1px solid #444;
+}
+
+.expense-table tr:last-child {
+    border-bottom: none;
+}
+
+/* ---- Sorting Feature ---- */
+.sort-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.sort-container button {
+    background-color: #FFA726;
+    border: none;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.sort-container button:hover {
+    background-color: #E68900;
+}
+
+/* ---- Delete Button ---- */
+.expense-table button {
+    background-color: #E53935;
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.expense-table button:hover {
+    background-color: #D32F2F;
+}
+
+/* ---- Responsive Design ---- */
+@media (max-width: 900px) {
+    .layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .add-expense,
+    .expense-list {
+        width: 100%;
+    }
+
+    .expense-table th,
+    .expense-table td {
+        font-size: 14px;
+    }
+}
