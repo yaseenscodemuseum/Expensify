@@ -22,6 +22,12 @@ body {
     margin-bottom: 20px;
 }
 
+/* Disable tap highlight on mobile */
+* {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+
 /* ---- Main Layout - Ensures Proper Alignment ---- */
 .layout {
     display: flex;
@@ -153,11 +159,50 @@ button:hover {
 }
 
 /* ---- Sorting Feature ---- */
+/* Sorting Container */
 .sort-container {
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 10px;
 }
+
+/* Dropdown Styling */
+.sort-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.sort-dropdown select {
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 2px solid #FF9800;
+    border-radius: 6px;
+    background-color: #1E1E1E;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.sort-dropdown select:hover {
+    background-color: #292929;
+}
+
+/* Arrow Styling - Outside the Container */
+.sort-arrow {
+    font-size: 20px;
+    color: #FF9800;
+    cursor: pointer;
+    margin-left: 8px; /* Moves it slightly outside */
+    transition: color 0.3s ease;
+}
+
+.sort-arrow:hover {
+    color: #E68900;
+}
+
 
 .sort-container button {
     background-color: #FFA726;

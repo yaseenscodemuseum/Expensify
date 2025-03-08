@@ -1,28 +1,47 @@
 import React, { useState } from "react";
 
 const ExpenseList = ({ expenses, deleteExpense }) => {
-  const [sortByName, setSortByName] = useState(false);
+  const [sortBy, setSortBy] = useState("date"); // Default sorting by date
+  const [sortOrder, setSortOrder] = useState("asc"); // Default ascending order
 
-  // Sorting by Name
+  // Sorting Function
   const sortedExpenses = [...expenses].sort((a, b) => {
-    if (sortByName) {
-      return a.expense.localeCompare(b.expense);
+    if (sortBy === "name") {
+      return sortOrder === "asc"
+        ? a.expense.localeCompare(b.expense)
+        : b.expense.localeCompare(a.expense);
+    } else if (sortBy === "amount") {
+      return sortOrder === "asc" ? a.amount - b.amount : b.amount - a.amount;
+    } else {
+      return sortOrder === "asc"
+        ? new Date(a.date) - new Date(b.date)
+        : new Date(b.date) - new Date(a.date);
     }
-    return 0; // Default order (latest first)
   });
+
+  // Calculate total amount
+  const totalAmount = expenses.reduce((sum, exp) => sum + Number(exp.amount), 0);
 
   return (
     <div className="expense-list">
       <h2>Expense List</h2>
 
-      {/* Sorting Button */}
+      {/* Sorting Dropdown with Arrow */}
       <div className="sort-container">
-        <button onClick={() => setSortByName(!sortByName)}>
-          Sort by Name {sortByName ? "↓" : "↑"}
-        </button>
+        <label>Sort by:</label>
+        <div className="sort-dropdown">
+          <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+            <option value="name">Name</option>
+            <option value="amount">Amount</option>
+            <option value="date">Date</option>
+          </select>
+          <span className="sort-arrow" onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}>
+            {sortOrder === "asc" ? "▼" : "▲"}
+          </span>
+        </div>
       </div>
 
-      {/* Table Container (Scrollable) */}
+      {/* Expense Table */}
       <div className="expense-list-container">
         <table className="expense-table">
           <thead>
@@ -46,6 +65,11 @@ const ExpenseList = ({ expenses, deleteExpense }) => {
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Total Expense Container */}
+      <div className="total-container">
+        <h3>Total Expense: ₹{totalAmount}</h3>
       </div>
     </div>
   );

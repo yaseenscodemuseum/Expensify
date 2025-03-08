@@ -1,4 +1,4 @@
-require("dotenv").config(); // Automatically finds .env in the root
+require("dotenv").config({ path: __dirname + "/.env" });
 
 const express = require("express");
 const mongoose = require("mongoose");
