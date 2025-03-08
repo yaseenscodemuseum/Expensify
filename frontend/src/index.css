@@ -188,20 +188,64 @@ button:hover {
     background-color: #D32F2F;
 }
 
-/* ---- Responsive Design ---- */
-@media (max-width: 900px) {
+/* ---- Mobile Compatibility (412x915 - 430x932) ---- */
+@media (max-width: 430px) {
     .layout {
         flex-direction: column;
         align-items: center;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .title {
+        font-size: 36px; /* Reduce title size */
+        margin-bottom: 15px;
     }
 
     .add-expense,
     .expense-list {
         width: 100%;
+        min-width: unset; /* Remove minimum width restriction */
+        max-width: 100%;
+        padding: 16px;
+    }
+
+    .input-group {
+        padding: 0; /* Remove extra padding */
+    }
+
+    input {
+        font-size: 14px; /* Reduce font size */
+        padding: 10px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .expense-table {
+        font-size: 12px;
     }
 
     .expense-table th,
     .expense-table td {
-        font-size: 14px;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .sort-container {
+        justify-content: center;
+    }
+
+    .sort-container button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .expense-table button {
+        font-size: 12px;
+        padding: 6px 10px;
     }
 }
+

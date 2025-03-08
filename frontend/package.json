@@ -18,6 +18,7 @@
   "scripts": {
     "start": "webpack serve --config webpack.config.js --mode development",
     "build": "webpack --config webpack.config.js --mode production",
+    "dev": "nodemon server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
